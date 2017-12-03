@@ -9,7 +9,7 @@
 
 int main(){
     int fd, State;
-    char buff[500];
+    char buff[512];
 
 
     mkfifo("tmp", 0666);
@@ -20,7 +20,7 @@ int main(){
     }
 
 
-    while((State = read(STDIN_FILENO, buff, 500) ) > 0) {
+    while((State = read(STDIN_FILENO, buff, 512) ) > 0) {
       write(fd, buff, strlen(buff));
     }
     close(fd);
