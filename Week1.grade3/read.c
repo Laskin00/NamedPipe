@@ -1,3 +1,13 @@
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+
 int main(){
     int fd, State;
     char buff[500];
@@ -13,3 +23,4 @@ int main(){
 
     close(fd);
 }
+
