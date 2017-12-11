@@ -65,7 +65,7 @@ int main(int argc, char * argv[]){
  		return 0;
  	}
 
- rb->pos = 0;
+  rb->pos = 0;
   rb->read = 0;
   rb->head = rb->begin;
   rb->tail= rb->begin;
@@ -74,7 +74,7 @@ int main(int argc, char * argv[]){
     int i = 0;
     
  	while(1){
- 		fgets(buff, 1, stdin);
+        fgets(buff, 1, stdin);
         i++;
         
         if(i == 511){
