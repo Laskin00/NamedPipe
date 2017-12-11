@@ -35,28 +35,28 @@ int main(){
 #include <stdlib.h>
 
 struct ringbuff{
-  		int pos;
-  		int read;
-      void *head;
-      void *tail;
-  		char begin[0];
+    int pos;
+    int read;
+    void *head;
+    void *tail;
+    char begin[0];
 };
 
 int main(){
-  int mempos = shm_open( "tmp", O_RDONLY, 1);
-  if( mempos == -1 ){
- 		perror("Oppening tmp");
- 		return 0;
-  }
+    int mempos = shm_open( "tmp", O_RDONLY, 1);
+     if( mempos == -1 ){
+ 		    perror("Oppening tmp");
+ 		    return 0;
+     }
 
-  struct ringbuff* rb = mmap( NULL, 4096, PROT_READ, MAP_SHARED, mempos, 0 );
+    struct ringbuff* rb = mmap( NULL, 4096, PROT_READ, MAP_SHARED, mempos, 0 );
+    
+    if(rb == NULL ){
+        perror("mmaping");
+        return -1;
+    }
 
-  if(rb == NULL ){
- 		perror("mmaping");
- 		return -1;
- 	}
+    printf("%s\n", rb->begin);
 
- 	 printf("%s\n", rb->begin);
-
-   return 0;
+    return 0;
 }
